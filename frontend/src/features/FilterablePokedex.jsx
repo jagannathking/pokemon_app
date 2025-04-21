@@ -3,9 +3,10 @@ import PokedexTable from '../components/PokedexTable';
 import PokemonTypeSelection from '../components/PokemonTypeSelection';
 import '../components/styles/Pokedex.css'; 
 
-import { API_BASE_URL } from '../config';
+// import { API_BASE_URL } from '../config';
 
-const API_BASE_URL = process.env.API_BASE_URL
+// // const API_BASE_URL = process.env.API_BASE_URL
+const API_BASE_URL = 'https://vercel.com/jagannaths-projects-36d87af2/pokemon-app/api/pokemon/'
 
 function FilterablePokedex() {
   const [allPokemonData, setAllPokemonData] = useState([]);

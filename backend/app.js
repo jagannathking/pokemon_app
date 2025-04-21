@@ -30,7 +30,7 @@ app.use("/api/pokemon", PokemonRoutes)
 
 
 // Test routes
-app.get("/test", (req, res) => {
+app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
         message: "server is Healthy"
