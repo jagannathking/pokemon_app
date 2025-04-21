@@ -9,9 +9,33 @@ const { seedDatabase } = require('./utils/seeder');
 const app = express();
 
 // Middleware 
-app.use(cors({
-    origin:["https://pokemon-app-4wer.vercel.app","http://localhost:5173"]
-}));
+// app.use(cors({
+//     origin:["https://pokemon-app-4wer.vercel.app","http://localhost:5173"]
+// }));
+
+app.use(
+    cors({
+      origin: [
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://192.168.162.84:5173",
+        "http://172.18.128.1:5173",
+        "https://pokemon-app-4wer.vercel.app",
+
+      ],
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      credentials: true,
+      allowedHeaders: [
+        "Content-Type",
+        "Authorization",
+        "Accept",
+        "X-Requested-With",
+      ],
+    })
+  );
+
+
+
 app.use(express.json());
 
 // Database Connection and Seeding
