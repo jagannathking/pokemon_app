@@ -1,0 +1,145 @@
+/* src/components/styles/Pokedex.css */
+.pokedex-container {
+  font-family: sans-serif;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pokedex-section {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 25px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pokedex-section h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  color: #333;
+}
+
+.search-form {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-form input[type="text"],
+.search-form textarea {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+.search-form textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.search-form button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-form button:hover {
+  background-color: #0056b3;
+}
+
+.search-form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.loading-message,
+.error-message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.loading-message {
+  color: #555;
+  background-color: #f0f0f0;
+}
+
+.error-message {
+  color: #d8000c;
+  background-color: #ffd2d2;
+}
+
+.pokedex-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.pokedex-table th,
+.pokedex-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.pokedex-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.pokedex-table img {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+}
+
+.pokemon-types span {
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 10px;
+  padding: 2px 8px;
+  margin-right: 5px;
+  font-size: 0.9em;
+  text-transform: capitalize;
+}
+
+.type-selection {
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.type-selection button {
+  padding: 6px 12px;
+  background-color: #e0e0e0;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.type-selection button:hover {
+  background-color: #d5d5d5;
+}
+
+.type-selection button.selected {
+  background-color: #4caf50; /* Example selected color */
+  color: white;
+  border-color: #388e3c;
+}
+
+.type-selection button:disabled {
+  background-color: #f5f5f5;
+  color: #aaa;
+  cursor: not-allowed;
+}
