@@ -4,9 +4,6 @@ import '../components/styles/Pokedex.css';
 
 import { API_BASE_URL } from '../config';
 
-
-// const API_BASE_URL = 'https://pokemon-app-six-lilac.vercel.app/api/pokemon'
-
 function SinglePokemonSearch() {
   const [pokemonNameInput, setPokemonNameInput] = useState('');
   const [searchedPokemonData, setSearchedPokemonData] = useState(null);

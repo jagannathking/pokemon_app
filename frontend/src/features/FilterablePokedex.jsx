@@ -5,8 +5,6 @@ import '../components/styles/Pokedex.css';
 
 import { API_BASE_URL } from '../config';
 
-// const API_BASE_URL = 'https://pokemon-app-six-lilac.vercel.app/api/pokemon'
-
 
 function FilterablePokedex() {
   const [allPokemonData, setAllPokemonData] = useState([]);

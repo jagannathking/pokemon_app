@@ -3,7 +3,7 @@ import PokedexTable from "../components/PokedexTable";
 import "../components/styles/Pokedex.css"; 
 import { API_BASE_URL } from '../config';
 
-// const API_BASE_URL = 'https://pokemon-app-six-lilac.vercel.app/api/pokemon'
+
 
 function BulkPokemonSearch() {
   const [pokemonNamesInput, setPokemonNamesInput] = useState("");
@@ -14,9 +14,9 @@ function BulkPokemonSearch() {
   const handleSearch = async (event) => {
     event.preventDefault();
     const namesArray = pokemonNamesInput
-      .split(",") // Split by comma
-      .map((name) => name.trim()) // Trim whitespace
-      .filter((name) => name); // Remove empty strings
+      .split(",") 
+      .map((name) => name.trim()) 
+      .filter((name) => name); 
 
     if (namesArray.length === 0) {
       setError("Please enter at least one Pokémon name, separated by commas.");
@@ -26,7 +26,7 @@ function BulkPokemonSearch() {
 
     setLoading(true);
     setError(null);
-    setPokemonListData([]); // Clear previous results
+    setPokemonListData([]); 
 
     try {
       const response = await fetch(`${API_BASE_URL}/bulk`, {
@@ -34,7 +34,7 @@ function BulkPokemonSearch() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ names: namesArray }), // Send names in the body
+        body: JSON.stringify({ names: namesArray }), 
       });
 
       if (!response.ok) {
