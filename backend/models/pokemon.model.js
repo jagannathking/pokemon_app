@@ -1,13 +1,13 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const pokemonSchema = new mongoose.Schema({
     id: { type: Number, required: true, unique: true },
-    name: { type: String, required: true, unique: true, index: true }, // Added index for faster name lookups
-    types: { type: [String], required: true }, // Array of strings
-    sprite: { type: String, required: true },   // URL string
-  });
-  
-  // Create and export the model
-  const Pokemon = mongoose.model('Pokemon', pokemonSchema);
-  
-  export default Pokemon;
+    name: { type: String, required: true, unique: true, index: true },
+    types: { type: [String], required: true },
+    sprite: { type: String, required: true },
+});
+
+const Pokemon = mongoose.model('Pokemon', pokemonSchema);
+
+// Use module.exports for default export equivalent
+module.exports = Pokemon;

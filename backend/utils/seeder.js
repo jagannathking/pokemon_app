@@ -1,6 +1,7 @@
-import Pokemon from '../models/pokemon.model.js'; 
+// utils/seeder.js
+const Pokemon = require('../models/pokemon.model'); 
 
-export const seedDatabase = async () => { 
+const seedDatabase = async () => {
     try {
         const count = await Pokemon.countDocuments();
 
@@ -16,12 +17,12 @@ export const seedDatabase = async () => {
 
             for (const pkmn of samplePokemon) {
                 await Pokemon.findOneAndUpdate(
-                    { id: pkmn.id }, 
-                    pkmn,           
+                    { id: pkmn.id },
+                    pkmn,
                     {
-                        upsert: true, 
-                        new: true,    
-                        setDefaultsOnInsert: true 
+                        upsert: true,
+                        new: true,
+                        setDefaultsOnInsert: true
                     }
                 );
             }
@@ -30,7 +31,10 @@ export const seedDatabase = async () => {
             console.log('Database already contains Pokemon. Seeding skipped.');
         }
     } catch (error) {
-
         console.error('Error during database seeding:', error.message);
     }
+};
+
+module.exports = {
+    seedDatabase
 };

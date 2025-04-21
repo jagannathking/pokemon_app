@@ -1,40 +1,40 @@
-import express from 'express';
-import cors from 'cors'
+const express = require('express');
+const cors = require('cors');
 
-import database from './config/database.js'
-import PokemonRoutes from './routes/pokemon.routes.js'
-import { seedDatabase } from './utils/seeder.js';
-
+// Use require for local files, remove .js
+const database = require('./config/database');
+const PokemonRoutes = require('./routes/pokemon.routes');
+const { seedDatabase } = require('./utils/seeder');
 
 const app = express();
 
+// Middleware 
+app.use(cors());
+app.use(express.json());
 
-// data base connection
+// Database Connection and Seeding
 database()
     .then(() => {
         console.log("Database connection successful in app.js. Initiating seeding...");
         seedDatabase();
     })
     .catch(error => {
-        console.error("Database connection failed, seeding will not occur:", error.message);
+        console.error("Database connection failed in app.js, seeding will not occur:", error.message);
     });
 
+app.use("/api/pokemon", PokemonRoutes);
 
-// middleware
-app.use(express.json());
-app.use(cors());
-
-
-// All Routes
-app.use("/api/pokemon", PokemonRoutes)
-
-
-// Test routes
+// Test/Root Route
 app.get("/", (req, res) => {
     res.status(200).json({
         success: true,
-        message: "server is Healthy"
-    })
-})
+        message: "Pokedex Backend Server is Healthy"
+    });
+});
 
-export default app;
+app.use((err, req, res, next) => {
+    console.error("Unhandled Error in Express:", err.stack || err);
+    res.status(500).json({ message: 'Internal Server Error!' });
+});
+
+module.exports = app;

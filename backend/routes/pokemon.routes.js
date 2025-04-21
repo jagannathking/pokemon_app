@@ -1,14 +1,15 @@
-import express from 'express'
+const express = require('express');
 
-import {getPokemonByName, getPokemonBulk, getAllPokemon} from '../controllers/pokemon.controller.js'
-
+const {
+    getPokemonByName,
+    getPokemonBulk,
+    getAllPokemon
+} = require('../controllers/pokemon.controller');
 
 const router = express.Router();
 
+router.get('/name/:name', getPokemonByName);
+router.post('/bulk', getPokemonBulk);
+router.get('/', getAllPokemon);
 
-router.get('/name/:name', getPokemonByName); 
-router.post('/bulk', getPokemonBulk);         
-router.get('/', getAllPokemon);             
-
-
-export default router;
+module.exports = router;
